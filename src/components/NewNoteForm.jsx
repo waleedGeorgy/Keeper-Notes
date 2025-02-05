@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import TextInput from "./TextInput";
 
 export default function NewNoteForm(props){
 
@@ -16,8 +17,8 @@ export default function NewNoteForm(props){
     return(
         <div>
             <div className="newNoteForm">
-                <input type="text" onChange={noteHandler} value={note.title} name="title" placeholder="Title" required autoFocus={true} />
-                <input type="text" onChange={noteHandler} value={note.content} name="content" placeholder="Take a note..." required />
+                <TextInput onChange={noteHandler} value={note.title} name="title" placeholder="Title" autoFocus={true} />
+                <TextInput onChange={noteHandler} value={note.content} name="content" placeholder="Take a note..." autoFocus={false} />
                 <button onClick={() => {
                     props.onSubmit(note);
                     setNote({title: "", content: ""});
